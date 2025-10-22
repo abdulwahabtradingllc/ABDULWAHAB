@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import {
   PhoneCall,
@@ -9,10 +9,13 @@ import {
   Twitter,
   MapPin,
 } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 import Logo from '../assets/images/Companylogo.png';
 
 export default function Footer() {
+  const navigate = useNavigate();
+  const location = useLocation();
+
   const services = [
     'Aluminum (Primary & Secondary)',
     'Iron & Steel Industry',
@@ -22,14 +25,16 @@ export default function Footer() {
   ];
 
   const products = [
-    'Thermocouple',
-    'Transmitters',
-    'Cables',
-    'Process Valves',
-    'Filter Solutions',
-    'Solenoid Valves',
-    'Indicators',
-  ];
+  "Thermocouple /RTD's",
+  "Transmitters",
+  "Cables",
+  "Process Valves",
+  "Filter Solutions",
+  "Solenoid Valves",
+  "Indicators",
+  "PneumaticmCylinders"
+];
+
 
   const socialIcons = [
     { icon: Linkedin, label: 'LinkedIn', href: '#' },
@@ -38,13 +43,45 @@ export default function Footer() {
     { icon: Twitter, label: 'Twitter', href: '#' },
   ];
 
-  const renderLinks = (arr, toPath) =>
+  // Scroll to section on homepage
+  const handleServiceClick = () => {
+    if (location.pathname !== '/') {
+      navigate('/', { state: { scrollTo: 'SERVICES' } });
+    } else {
+      const section = document.getElementById('SERVICES');
+      if (section) section.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  // Scroll to top of products page
+  const handleProductClick = () => {
+    if (location.pathname !== '/products') {
+      navigate('/products', { state: { scrollToTop: true } });
+    } else {
+      // <-- FIXED: scroll page to top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+  };
+
+  const renderServiceLinks = (arr) =>
     arr.map((item, i) => (
       <li
         key={i}
         className="mb-1 last:mb-0 cursor-pointer hover:text-[#5bd1ff] transition-colors duration-200 text-[13px] text-gray-300"
+        onClick={handleServiceClick}
       >
-        <Link to={toPath}>{item}</Link>
+        {item}
+      </li>
+    ));
+
+  const renderProductLinks = (arr) =>
+    arr.map((item, i) => (
+      <li
+        key={i}
+        className="mb-1 last:mb-0 cursor-pointer hover:text-[#5bd1ff] transition-colors duration-200 text-[13px] text-gray-300"
+        onClick={handleProductClick}
+      >
+        {item}
       </li>
     ));
 
@@ -68,7 +105,7 @@ export default function Footer() {
           <h3 className="uppercase font-thin mb-1 text-[12px] tracking-widest text-white font-roboto">
             Our Services
           </h3>
-          <ul className="space-y-0.5">{renderLinks(services, '/services')}</ul>
+          <ul className="space-y-0.5">{renderServiceLinks(services)}</ul>
         </div>
 
         {/* Products */}
@@ -76,7 +113,7 @@ export default function Footer() {
           <h3 className="uppercase font-thin mb-1 text-[12px] tracking-widest text-white font-roboto">
             Products
           </h3>
-          <ul className="space-y-0.5">{renderLinks(products, '/products')}</ul>
+          <ul className="space-y-0.5">{renderProductLinks(products)}</ul>
         </div>
 
         {/* Get In Touch */}

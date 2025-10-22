@@ -7,7 +7,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 const video1 = new URL("../assets/videos/video1.mp4", import.meta.url).href;
-const video2 = new URL("../assets/videos/video4.mp4", import.meta.url).href;
+const video2 = new URL("../assets/videos/video6.mp4", import.meta.url).href;
 const video3 = new URL("../assets/videos/video5.mp4", import.meta.url).href;
 const video4 = new URL("../assets/videos/video3.mp4", import.meta.url).href;
 const video5 = new URL("../assets/videos/video2.mp4", import.meta.url).href;
@@ -47,14 +47,14 @@ const services = [
 
 const Services = () => {
   return (
- <section className="w-full min-h-screen py-16 sm:py-20 overflow-hidden text-white">
+ <section className="w-full min-h-screen pt-16 sm:pt-20 overflow-hidden bg-[#1A83C7] text-white">
   {/* Header */}
-  <div className="text-center mb-12 px-2 sm:px-4">
+  <div className="text-center mb-0 px-2 sm:px-4">
     <motion.h1
       initial={{ y: -50, opacity: 0 }}
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
-      className="text-3xl sm:text-5xl md:text-6xl font-thin mb-4 tracking-wide font-roboto text-gray-900"
+      className="text-3xl sm:text-5xl md:text-6xl font-thin mb-4 tracking-wide font-roboto text-gray-100"
     >
       Our Services
     </motion.h1>
@@ -62,7 +62,7 @@ const Services = () => {
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ delay: 0.3, duration: 0.8 }}
-      className="text-gray-500 text-sm sm:text-base md:text-lg max-w-2xl mx-auto font-thin font-roboto"
+      className="text-gray-200 pb-12 text-sm sm:text-base md:text-lg max-w-2xl mx-auto font-thin font-roboto"
     >
       We provide cutting-edge industrial materials, tools, and technologies
       that empower global industries to perform better and greener.
@@ -113,7 +113,7 @@ const Services = () => {
             initial={{ x: 50, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.8, delay: 0.4 }}
-            className="relative z-10 w-full md:w-1/2 px-4 sm:px-8 md:px-10 py-8 sm:py-10 flex flex-col justify-center bg-white"
+            className="relative z-10 w-full md:w-1/2 px-4 sm:px-8 md:px-10 py-8 sm:py-10 flex flex-col justify-center bg-gray-100"
           >
             <h2 className="text-2xl sm:text-3xl md:text-5xl font-thin mb-4 text-black font-roboto text-center md:text-left">
               {service.title}

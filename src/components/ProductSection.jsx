@@ -16,7 +16,7 @@ export default function ProductSection() {
   };
 
   return (
-    <div className="w-full min-h-[90vh] items-center px-8 py-10 md:px-19 bg-gray-900 overflow-hidden">
+    <div className="w-full min-h-[90vh] items-center px-8 py-10 md:px-19 bg-gradient-to-b from-gray-200 to-gray-500 overflow-hidden">
       {/* LEFT TEXT */}
 
       <div className="flex w-full flex-col justify-center items-start md:items-center  px-5  text-center md:text-left">
@@ -27,7 +27,7 @@ export default function ProductSection() {
             initial={{ y: -50, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
-            className="text-4xl sm:text-5xl md:text-6xl font-thin mb-4 tracking-wide font-roboto text-white"
+            className="text-4xl sm:text-5xl md:text-6xl font-thin mb-4 tracking-wide font-roboto text-gray-900"
           >
             Explore Our Products
           </motion.h1>
@@ -37,7 +37,7 @@ export default function ProductSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3, duration: 0.8, ease: "easeOut" }}
-            className="text-gray-500 text-base sm:text-lg max-w-2xl mx-auto font-thin font-roboto text-white"
+            className="text-gray-700 text-base sm:text-lg max-w-2xl mx-auto font-thin font-roboto "
           >
             Through our strong global sourcing network,{" "}
             <span className="font-semibold">ABDULWAHAB TRADING LLC</span> connects you to
@@ -58,7 +58,7 @@ export default function ProductSection() {
       {/* Button */}
       <div className="w-full flex justify-center">
         <motion.button
-          className="relative px-8 py-3 rounded-full font-light font-roboto text-white  bg-gradient-to-b from-[#1A83C7] to-[#1A83C7] text-white border  transition-all duration-300 hover:bg-blue-700 hover:shadow-[0_0_20px_rgba(6,182,212,0.7)] hover:scale-105 m-10"
+          className="relative px-8 py-3 rounded-full font-light font-roboto text-white  bg-gradient-to-b from-[#1A83C7] to-[#1A83C7] text-white   transition-all duration-300 hover:bg-blue-700 hover:shadow-[0_0_20px_rgba(6,182,212,0.7)] hover:scale-105 m-10"
           onClick={() => navigate("/products")}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}

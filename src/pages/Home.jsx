@@ -9,11 +9,14 @@ import OfficeSupplies from '../components/OfficeSupplies';
 import Contact from './Contact';
 import Footer from '../components/Footer';
 import Services from './Services';
+import SideDotsNav from '../components/SideDotsNav';
+import PrincipalSuppliers from '../components/PrincipalSuppliers';
 
 function Home() {
   return (
     <>
       <Navbar />
+      <SideDotsNav/>
       
       <section id="HOME">
         <Hero />
@@ -37,6 +40,7 @@ function Home() {
 
       <section id="CONTACT">
         <OfficeSupplies />
+        <PrincipalSuppliers/>
         <Contact />
       </section>
 
