@@ -32,7 +32,7 @@ export default function Footer() {
   "Filter Solutions",
   "Solenoid Valves",
   "Indicators",
-  "PneumaticmCylinders"
+  "PneumaticCylinders"
 ];
 
 

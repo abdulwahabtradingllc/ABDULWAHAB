@@ -41,7 +41,7 @@ export default function OfficeSupplies() {
         className="text-center mb-14"
       >
         <h2 className="text-4xl sm:text-5xl md:text-6xl font-thin text-black font-roboto tracking-wide">
-          Our Clients
+           Clients We Focus
         </h2>
       </motion.div>
 
