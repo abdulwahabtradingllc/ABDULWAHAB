@@ -113,23 +113,37 @@ export default function Navbar() {
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center h-16">
         {/* Logo */}
-        <motion.div
-          className="w-auto cursor-pointer"
-          onClick={() => navigate("/")}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: showLogo ? 1 : 0 }}
-          transition={{ duration: 0.3 }}
-        >
-          {showLogo && (
-            <div className="flex h-16">
-              <img
-                src={textlogo}
-                alt="Logo"
-                className="h-full object-contain"
-              />
-            </div>
-          )}
-        </motion.div>
+<motion.div
+  className="w-auto cursor-pointer"
+  onClick={() => navigate("/")}
+  initial={{ opacity: 0 }}
+  animate={{ opacity: 1 }}
+  transition={{ duration: 0.3 }}
+>
+  <div
+    className="flex flex-col justify-center items-center h-16 leading-tight text-center transition-all duration-300 drop-shadow-none"
+  >
+    {/* Arabic text */}
+    <p
+      className={`text-[17px] font-semibold font-sans tracking-wide whitespace-nowrap transition-colors duration-300 ${
+        scrolled || hoverNav ? "text-[#1A83C7]" : "text-white"
+      }`}
+    >
+      عبدالوهاب للتجارة ش.ذ.م.م
+    </p>
+
+    {/* English text */}
+    <p
+      className={`text-[14px] font-bold tracking-wide uppercase whitespace-nowrap transition-colors duration-300 ${
+        scrolled || hoverNav ? "text-[#1A83C7]" : "text-white"
+      }`}
+    >
+      ABDULWAHAB TRADING LLC
+    </p>
+  </div>
+</motion.div>
+
+
 
         {/* Desktop Menu */}
         <ul

@@ -82,5 +82,30 @@ html, body {
   animation: slideDown 0.3s ease forwards;
 }
 
+@media (min-width: 768px) {
+    .contact-img {
+      clip-path: polygon(12% 0, 100% 0, 100% 100%, 0% 100%);
+    }
+
+    .contact-overlay {
+      clip-path: polygon(12% 0, 100% 0, 100% 100%, 0% 100%);
+    }
+  }
+
+  /* Mobile: Remove slope and make image full width */
+  @media (max-width: 767px) {
+    .contact-img {
+      clip-path: none !important;
+      width: 100% !important;
+      height: auto;
+      background-position: center;
+      background-size: cover;
+    }
+
+    .contact-overlay {
+      clip-path: none !important;
+      width: 100% !important;
+    }
+  }
 
 

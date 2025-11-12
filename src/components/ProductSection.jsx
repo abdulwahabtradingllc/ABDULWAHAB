@@ -16,7 +16,7 @@ export default function ProductSection() {
   };
 
   return (
-    <div className="w-full min-h-[90vh] items-center px-8 py-10 md:px-19 bg-gradient-to-b from-gray-200 to-gray-500 overflow-hidden">
+    <div className="w-full min-h-[90vh] items-center px-8 py-10 md:px-19 bg-gradient-to-b from-gray-300 to-gray-900 overflow-hidden">
       {/* LEFT TEXT */}
 
       <div className="flex w-full flex-col justify-center items-start md:items-center  px-5  text-center md:text-left">

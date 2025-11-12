@@ -37,10 +37,12 @@ function Home() {
       <section id="WHY US">
         <WhyChooseUs />
       </section>
-
-      <section id="CONTACT">
-        <OfficeSupplies />
+      <section id="OFFICE SUPPLIES">
+         <OfficeSupplies />
         <PrincipalSuppliers/>
+      </section>
+      <section id="CONTACT">
+       
         <Contact />
       </section>
 

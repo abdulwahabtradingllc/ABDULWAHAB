@@ -19,12 +19,13 @@ const services = [
       "Delivering strength and precision with our premium range of iron and steel products. From raw materials to industrial tools and maintenance components, we ensure consistent performance, high durability, and global-grade quality for modern infrastructure and machinery.",
     image: video1,
   },
-  {
-    title: "ALUMINIUM",
-    description:
-      "Providing high-grade raw materials, smelting technology, and sustainability-driven aluminum solutions. We offer a complete range of aluminum products and support industrial clients with lightweight, corrosion-resistant materials suitable for manufacturing, construction, and engineering applications.",
-    image: video2,
-  },
+{
+  title: "ALUMINIUM",
+  description:
+    "Providing high-grade raw materials, smelting technology, and sustainability-driven aluminum solutions. We offer a complete range of aluminum products and support industrial clients with lightweight, corrosion-resistant materials suitable for manufacturing, construction, and engineering applications. Providing high-grade Master Alloys, Ferro Alloys, Mg Ingots, Silicon Metal, Refractory Bricks & Castable, SIC Bricks, Collector Bar, Carbon Products, Pneumatic Cylinders, and more to support specialized industrial requirements.",
+  image: video2,
+},
+
   {
     title: "OIL & GAS",
     description:

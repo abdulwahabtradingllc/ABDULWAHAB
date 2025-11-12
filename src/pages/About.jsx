@@ -17,36 +17,81 @@ export default function AboutSection() {
     },
   };
 
+  const imgSrc =
+    aboutImg && typeof aboutImg === "string"
+      ? aboutImg
+      : (aboutImg && (aboutImg.src || aboutImg.default || aboutImg)) || "";
+
   return (
-    <section className="w-full overflow-hidden font-inter relative">
+    <section
+      className="relative w-full min-h-[70vh] overflow-hidden font-inter flex flex-col justify-between bg-[#0183c4]"
+      style={{ fontFamily: "'Poppins', sans-serif" }}
+    >
+      {/* 🔹 Glow Accent */}
+      <div className="absolute top-10 right-10 w-80 h-80 bg-blue-300/20 rounded-full blur-3xl z-10 pointer-events-none" />
 
-      {/* 🔹 ABOUT SECTION (with overlay) */}
-      <div className="relative flex flex-col md:flex-row md:min-h-screen">
-        {/* 🔹 Full-section overlay */}
-        <div className="absolute inset-0 bg-gradient-to-b from-[#002143] via-[#00000000] to-[#01355b]/0 opacity-80 z-10 pointer-events-none"></div>
+      {/* MAIN WRAPPER */}
+      <div className="relative z-20 w-full flex flex-col md:flex-row h-auto">
+        {/* 🔹 Top soft gradient */}
+        <div className="absolute top-0 left-0 right-0 h-14 bg-gradient-to-b from-[#0183c4] to-transparent z-30 pointer-events-none" />
 
-        {/* LEFT TEXT */}
-        <div className="relative flex-1 flex items-center justify-center bg-[#1A83C7] text-white px-6 py-10 md:p-16 overflow-hidden">
+        {/* LEFT IMAGE SECTION — slope for desktop only */}
+        <div
+          className="relative flex-[1.25] h-[300px] sm:h-[400px] md:h-auto overflow-hidden" // ✅ increased from flex-[1.2] → flex-[1.25]
+          style={{
+            // ✅ Slightly widened slope — from 80% → 78% (adds ~0.5 cm width visually)
+            clipPath: "polygon(0 0, 100% 0, 78% 100%, 0% 100%)",
+          }}
+        >
+          {/* For mobile, remove slope */}
+          <div className="md:hidden absolute inset-0 bottom-0">
+            <motion.img
+              src={imgSrc}
+              alt="About"
+              initial={{ opacity: 0, scale: 1.03 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1.2 }}
+              className="w-full h-full object-cover object-center"
+            />
+          </div>
+
+          {/* For desktop (slope version) */}
+          <div className="hidden md:block absolute inset-0 bottom-0">
+            <motion.img
+              src={imgSrc}
+              alt="About"
+              initial={{ opacity: 0, scale: 1.03 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1.2 }}
+              className="w-full h-full object-cover object-center"
+            />
+          </div>
+
+          {/* 🔹 Top & Bottom blue overlays */}
+          <div className="absolute top-0 left-0 right-0 h-20 bg-gradient-to-b from-[#0183c4]/70 to-transparent z-20 pointer-events-none" />
+          <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-[#0183c4]/70 to-transparent z-20 pointer-events-none" />
+        </div>
+
+        {/* RIGHT TEXT SECTION */}
+        <div className="flex-1 flex items-center justify-center py-20 px-6 sm:px-10 md:px-20 lg:px-28 text-white z-30 bg-[#0183c4] md:bg-transparent">
           <motion.div
             variants={fadeUp}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true }}
-            className="max-w-xl text-center md:text-left z-20"
+            className="max-w-xl text-center md:text-left space-y-5"
           >
             <motion.h1
-              initial={{ y: -50, opacity: 0 }}
+              initial={{ y: -40, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
-              className="text-3xl sm:text-5xl md:text-6xl font-thin mb-4 tracking-wide font-roboto text-white text-center"
+              className="text-3xl sm:text-5xl md:text-6xl font-thin tracking-wide font-roboto text-white"
             >
               About Us
             </motion.h1>
 
-            <p className="text-base sm:text-lg md:text-[17px] leading-relaxed font-light font-roboto text-gray-100 text-center md:text-center">
-              <span className="font-semibold text-white">
-                ABDULWAHAB TRADING LLC
-              </span>{" "}
+            <p className="text-sm sm:text-base md:text-[17px] leading-relaxed font-light font-roboto text-gray-100">
+              <span className="font-semibold text-white">ABDULWAHAB TRADING LLC</span>{" "}
               has established a strong reputation as one of the leading suppliers of specialized
               industrial goods and services in the Middle East. We proudly deliver high-quality
               products sourced from top global manufacturers, supporting industries across Saudi
@@ -61,26 +106,15 @@ export default function AboutSection() {
           </motion.div>
         </div>
 
-        {/* RIGHT IMAGE */}
-        <div className="relative flex-1 overflow-hidden group cursor-pointer h-[300px] sm:h-auto">
-          <div
-            className="w-full h-[300px] sm:h-[400px] md:h-full bg-center bg-cover transition-transform duration-[1500ms] ease-in-out group-hover:scale-110"
-            style={{ backgroundImage: `url(${aboutImg})` }}
-          ></div>
-        </div>
+        {/* 🔹 Bottom gradient fade */}
+        <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#0183c4] to-transparent z-30 pointer-events-none" />
       </div>
 
-      {/* 🔹 MISSION & VISION SECTION (No overlay here) */}
-      <div className="w-full font-inter px-4 md:px-12 py-12 md:py-16 min-h-[200px] flex items-center bg-white relative z-20">
+      {/* 🔹 Mission & Vision Section */}
+      <div className="w-full font-inter px-4 md:px-12 py-12 md:py-16 flex items-center bg-white relative z-50">
         <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center md:items-start justify-center md:justify-between gap-8 md:gap-10">
           {/* MISSION */}
-          <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="flex-1"
-          >
+          <div className="flex-1">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-roboto font-light tracking-tight text-center mb-3 text-gray-900">
               Our Mission
             </h2>
@@ -89,23 +123,17 @@ export default function AboutSection() {
               <li>Develop new markets and products, and expand business in Industrial Raw Materials, Commodities, and Engineering Equipment and Projects.</li>
               <li>Serve as an effective instrument of public policy and social responsibility.</li>
             </ul>
-          </motion.div>
+          </div>
 
           {/* VISION */}
-          <motion.div
-            variants={fadeUp}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: true }}
-            className="flex-1"
-          >
+          <div className="flex-1">
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-roboto font-light tracking-tight text-center mb-3 text-gray-900">
               Our Vision
             </h2>
             <ul className="list-disc pl-5 space-y-2 text-xs sm:text-sm font-light font-roboto text-gray-700 leading-relaxed text-left">
               <li>To be the trading company of choice of the customers, principals, and investors through dedicated professionalism.</li>
             </ul>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

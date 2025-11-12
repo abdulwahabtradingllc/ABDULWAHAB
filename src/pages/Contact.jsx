@@ -3,7 +3,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { TextField, Button } from "@mui/material";
-import contactImg from '../assets/images/contactnew.jpg'
+import contactImg from "../assets/images/contactnew.jpg";
 
 export default function ContactModernFlipped() {
   const handleSubmit = (e) => {
@@ -17,19 +17,22 @@ export default function ContactModernFlipped() {
   };
 
   return (
-    <div id="contact" className="min-h-screen flex flex-col md:flex-row">
-      {/* LEFT SIDE - TRANSPARENT FORM ON GRADIENT BG */}
+    <div
+      id="contact"
+      className="relative min-h-[90vh] w-full flex flex-col md:flex-row overflow-hidden bg-[#1A83C7]"
+    >
+      {/* LEFT SIDE - FORM */}
       <motion.div
         initial={{ opacity: 0, x: -80 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8 }}
-        className="md:w-1/2 w-full flex items-center justify-center py-16 px-6 bg-[#1A83C7]"
+        className="relative w-full md:w-[45%] flex items-center justify-center py-14 px-6 bg-[#1A83C7]"
+        style={{
+          clipPath: "polygon(0 0, 96% 0, 89% 100%, 0% 100%)",
+        }}
       >
-        <div
-          className="w-full max-w-md p-8 sm:p-10 
-        border border-white/60"
-        >
-          <h2 className="text-4xl font-thin font-roboto text-center text-white  mb-8">
+        <div className="w-full max-w-md p-8 sm:p-10 border shadow-white/20 border-white/40 bg-[#1A83C7] shadow-lg">
+          <h2 className="text-4xl font-thin font-roboto text-center text-white mb-8">
             Get in Touch
           </h2>
 
@@ -39,27 +42,26 @@ export default function ContactModernFlipped() {
               label="Full Name"
               variant="outlined"
               fullWidth
-
               InputProps={{
                 sx: {
                   color: "white",
                   "& .MuiOutlinedInput-notchedOutline": {
-                    borderColor: "rgba(255, 255, 255, 0.73)",
+                    borderColor: "rgba(255, 255, 255, 0.6)",
                   },
                   "&:hover .MuiOutlinedInput-notchedOutline": {
-                    borderColor: "#06b6d4",
+                    borderColor: "white",
                   },
                   "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
-                    borderColor: "#06b6d4",
+                    borderColor: "white",
                   },
                 },
               }}
               InputLabelProps={{
                 sx: {
-                  color: "rgba(255,255,255,0.6)",
+                  color: "rgba(255,255,255,0.7)",
                   "&.Mui-focused": {
                     color: "white",
-                    transform: "translate(14px, -9px) scale(0.75)", // ensures label goes up left corner
+                    transform: "translate(14px, -9px) scale(0.75)",
                   },
                 },
               }}
@@ -71,24 +73,23 @@ export default function ContactModernFlipped() {
               variant="outlined"
               type="email"
               fullWidth
-
               InputProps={{
                 sx: {
                   color: "white",
                   "& .MuiOutlinedInput-notchedOutline": {
-                    borderColor: "rgba(255, 255, 255, 0.73)",
+                    borderColor: "rgba(255, 255, 255, 0.6)",
                   },
                   "&:hover .MuiOutlinedInput-notchedOutline": {
-                    borderColor: "#06b6d4",
+                    borderColor: "white",
                   },
                   "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
-                    borderColor: "#06b6d4",
+                    borderColor: "white",
                   },
                 },
               }}
               InputLabelProps={{
                 sx: {
-                  color: "rgba(255,255,255,0.6)",
+                  color: "rgba(255,255,255,0.7)",
                   "&.Mui-focused": {
                     color: "white",
                     transform: "translate(14px, -9px) scale(0.75)",
@@ -104,24 +105,23 @@ export default function ContactModernFlipped() {
               multiline
               rows={4}
               fullWidth
-
               InputProps={{
                 sx: {
                   color: "white",
                   "& .MuiOutlinedInput-notchedOutline": {
-                    borderColor: "rgba(255, 255, 255, 0.73)",
+                    borderColor: "rgba(255, 255, 255, 0.6)",
                   },
                   "&:hover .MuiOutlinedInput-notchedOutline": {
-                    borderColor: "#06b6d4",
+                    borderColor: "white",
                   },
                   "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
-                    borderColor: "#06b6d4",
+                    borderColor: "white",
                   },
                 },
               }}
               InputLabelProps={{
                 sx: {
-                  color: "rgba(255,255,255,0.6)",
+                  color: "rgba(255,255,255,0.7)",
                   "&.Mui-focused": {
                     color: "white",
                     transform: "translate(14px, -9px) scale(0.75)",
@@ -131,16 +131,15 @@ export default function ContactModernFlipped() {
             />
 
             <Button
-
               type="submit"
               variant="contained"
               size="large"
               sx={{
-                backgroundColor: "#ffffffff",
-                "&:hover": { backgroundColor: "#11ccfaff" },
+                backgroundColor: "#ffffff",
+                "&:hover": { backgroundColor: "#f2f2f2" },
                 fontWeight: "thin",
                 fontFamily: "roboto",
-                color: "black",
+                color: "#000000",
                 py: 1.3,
               }}
             >
@@ -150,35 +149,45 @@ export default function ContactModernFlipped() {
         </div>
       </motion.div>
 
-      {/* RIGHT SIDE - IMAGE BACKGROUND WITH OVERLAY + TEXT */}
+      {/* RIGHT SIDE - IMAGE */}
       <motion.div
         initial={{ opacity: 0, x: 80 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8 }}
-        className="relative w-full md:w-1/2 h-[350px] sm:h-[450px] md:h-auto bg-cover bg-center flex items-center justify-center"
-        style={{ backgroundImage: `url(${contactImg})` }}
+        className="relative w-full md:w-[55%] h-[340px] sm:h-[440px] md:h-auto flex items-center justify-center overflow-hidden"
       >
-        <div className="absolute inset-0 bg-black/60" />
-        <div className="relative z-10 text-center md:text-left text-white px-6 sm:px-10 py-10 md:py-16 space-y-5 sm:space-y-6">
+        {/* IMAGE */}
+        <div
+          className="absolute inset-0 w-full h-full bg-cover bg-center contact-img"
+          style={{
+            backgroundImage: `url(${contactImg})`,
+          }}
+        />
+
+        {/* OVERLAY */}
+        <div className="absolute inset-0 bg-black/60 contact-overlay" />
+
+        {/* CONTENT */}
+        <div className="relative z-10 text-center md:text-left text-white px-6 sm:px-10 py-10 md:py-14 space-y-5 sm:space-y-6 max-w-lg">
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-light font-roboto">
             Let’s Connect
           </h2>
-          <p className="text-gray-200 text-sm sm:text-base max-w-md leading-relaxed mx-auto md:mx-0">
+          <p className="text-white text-sm sm:text-base leading-relaxed">
             Reach out to us for inquiries, collaborations, or project discussions.
             We’d love to hear from you.
           </p>
 
-          <div className="space-y-4 text-gray-200 text-sm sm:text-base">
+          <div className="space-y-4 text-white text-sm sm:text-base">
             <div className="flex items-center justify-center md:justify-start gap-3">
-              <Phone className="text-[#1A83C7]" size={20} />
-              <span>+971 55 801 6768</span>
+              <Phone className="text-white" size={20} />
+              <span>+971 55 801 67 68 (UAE) / +966 59 883 78 50 (KSA)</span>
             </div>
 
             <div className="flex items-center justify-center md:justify-start gap-3">
-              <Mail className="text-[#1A83C7]" size={20} />
+              <Mail className="text-white" size={20} />
               <a
                 href="mailto:raju@wahabintl.com"
-                className="text-[#1A83C7] hover:underline break-all"
+                className="text-white hover:underline break-all"
               >
                 raju@wahabintl.com
               </a>
@@ -186,7 +195,7 @@ export default function ContactModernFlipped() {
 
             <div className="flex flex-col gap-4">
               <div className="flex items-start gap-2 justify-center md:justify-start">
-                <MapPin className="text-[#1A83C7] mt-1" size={20} />
+                <MapPin className="text-white mt-1" size={20} />
                 <div className="text-sm sm:text-base">
                   Abdulwahab Trading LLC <br />
                   Silver Home, Hor Al Anz East <br />
@@ -195,7 +204,7 @@ export default function ContactModernFlipped() {
               </div>
 
               <div className="flex items-start gap-2 justify-center md:justify-start">
-                <MapPin className="text-[#1A83C7] mt-1" size={20} />
+                <MapPin className="text-white mt-1" size={20} />
                 <div className="text-sm sm:text-base">
                   EHAB8674, Bldg: 8674 <br />
                   King Khalid Ibn Abdulaziz <br />
