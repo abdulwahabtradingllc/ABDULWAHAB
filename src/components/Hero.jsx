@@ -1,37 +1,24 @@
+// src/components/HeroSection.jsx
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-// import bg1 from "../assets/images/herobg2.jpg";
-import bg1 from "../assets/images/smelting-aluminum.webp";
-import bg2 from "../assets/images/oilandgas 1.webp";
-import bg3 from "../assets/images/steel.webp";
 
-// import bg2 from "../assets/images/herobg3.jpg";
-// import bg3 from "../assets/images/herobg6.jpg";
+// ⭐ ADD 5 IMAGES HERE
+import bg1 from "../assets/images/herobg4.jpg";
+import bg2 from "../assets/images/herobg7.png";
+import bg3 from "../assets/images/herobg5.png";
+import bg4 from "../assets/images/herobg6.jpg"; // <-- Replace with real image
+import bg5 from "../assets/images/herobg7.jpg"; // <-- Replace with real image
 
 export default function HeroSection() {
   // ⭐ USE 5 IMAGES
   const heroImages = [bg1, bg2, bg3, bg4, bg5];
   const [index, setIndex] = useState(0);
 
-  // ✅ Preload all images
   useEffect(() => {
-    let loadedCount = 0;
-    heroImages.forEach((src) => {
-      const img = new Image();
-      img.src = src;
-      img.onload = () => {
-        loadedCount++;
-        if (loadedCount === heroImages.length) setLoaded(true);
-      };
-    });
-  }, []);
-
-  // ✅ Smooth image rotation
-  useEffect(() => {
-    if (!loaded) return;
-    const interval = setInterval(() => {
-      setIndex((prev) => (prev + 1) % heroImages.length);
-    }, 7000);
+    const interval = setInterval(
+      () => setIndex((prev) => (prev + 1) % heroImages.length),
+      3000 // ⭐ Faster image switching (2 seconds)
+    );
     return () => clearInterval(interval);
   }, []);
 
@@ -99,42 +86,33 @@ export default function HeroSection() {
         </div>
 
         {/* RIGHT IMAGE SECTION */}
-        <div className="flex-1 relative flex justify-end items-end h-full z-10 w-full">
-          
-          {/* ✅ Desktop – Sloped image (unchanged) */}
-          <div
-            className="hidden md:block absolute bottom-0 right-0 w-[55vw] sm:w-[60vw] md:w-[58vw] lg:w-[55vw] xl:w-[52vw] h-full overflow-hidden"
-            style={{
-              clipPath: "polygon(25% 0, 100% 0, 100% 100%, 0% 100%)",
-              backgroundColor: "#00acf0",
-            }}
-          >
-            {heroImages.map((src, i) => (
-              <motion.img
-                key={i}
-                src={src}
-                alt={`Hero ${i}`}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: i === index ? 1 : 0 }}
-                transition={{ duration: 2.5, ease: "easeInOut" }}
-                className="absolute bottom-0 w-full h-full object-cover object-center"
-              />
-            ))}
-          </div>
+        <div className="flex-1 relative flex justify-end items-center w-full mt-8 lg:mt-0">
 
-          {/* ✅ Mobile – Full width, no padding, reduced height */}
-          <div className="block md:hidden relative bottom-0 left-0 right-0 w-full h-[250px] sm:h-[300px] overflow-hidden m-0 p-0">
-            {heroImages.map((src, i) => (
-              <motion.img
-                key={`mobile-${i}`}
-                src={src}
-                alt={`Hero Mobile ${i}`}
-                initial={{ opacity: 0 }}
-                animate={{ opacity: i === index ? 1 : 0 }}
-                transition={{ duration: 2.5, ease: "easeInOut" }}
-                className="absolute inset-0 w-full h-full object-cover object-center"
-              />
-            ))}
+          {/* Top Fade */}
+          <div className="absolute top-0 left-0 right-0 h-12 sm:h-14 bg-gradient-to-b from-[#0183c4] to-transparent z-30 pointer-events-none" />
+
+          {/* ANGLED IMAGE WRAPPER */}
+          <div
+            id="hero-image-wrapper"
+            className="
+              relative w-full 
+              h-[200px] sm:h-[260px] md:h-[330px] lg:h-[450px]
+              overflow-hidden 
+              lg:rounded-bl-[10px]
+              rounded-md sm:rounded-lg
+            "
+            style={{ backgroundColor: "#00acf0" }}
+          >
+            {/* ⭐ SMOOTH FADE ANIMATION */}
+            <motion.img
+              key={index}
+              src={heroImages[index]}
+              alt="Hero"
+             initial={{ opacity: 0, scale: 1.05 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1.8 }}
+              className="absolute inset-0 w-full h-full object-cover"
+            />
           </div>
         </div>
       </div>
