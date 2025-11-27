@@ -1,0 +1,66 @@
+/* src/styles/HeroSection.css
+   Minimal overrides so Tailwind classes remain primary.
+   - apply clip only to desktop images
+   - add Safari/Apple workarounds
+*/
+
+/* Apply clipped shape to desktop hero images only */
+.hero-img-desktop {
+  -webkit-clip-path: polygon(25% 0, 100% 0, 100% 100%, 0% 100%);
+  clip-path: polygon(25% 0, 100% 0, 100% 100%, 0% 100%);
+  /* ensure GPU compositing to avoid Safari issues */
+  transform: translateZ(0);
+  will-change: opacity, transform;
+}
+
+/* Force image visible even when parent uses overflow */
+.hero-img-desktop,
+.hero-img-desktop:before {
+  display: block;
+}
+
+/* Safari / iOS specific fallback: remove clip-path (it sometimes hides images)
+   but only for WebKit platforms so other browsers keep the clip.
+*/
+@supports (-webkit-touch-callout: none) {
+  .hero-img-desktop {
+    -webkit-clip-path: none !important;
+    clip-path: none !important;
+    border-top-left-radius: 28px; /* give a subtle rounded look on Apple */
+    object-position: center;
+  }
+}
+
+/* Additional media queries for apple devices and smaller screens */
+@media screen and (max-width: 1024px) {
+  .hero-img-desktop {
+    -webkit-clip-path: none !important;
+    clip-path: none !important;
+  }
+}
+
+/* Keep image transitions smooth */
+.hero-img-desktop,
+.hero-image-mobile {
+  transition: opacity 2.5s ease-in-out;
+}
+
+/* Small fix: prevent container collapse when md:block element absolutely positioned */
+@media (min-width: 768px) {
+  .relative.z-20 > .flex-1:last-child {
+    /* no-op: ensures layout reserve for the absolute image container if needed */
+    min-height: 1px;
+  }
+}
+/* ✅ Responsive fix for Apple devices (iPad Mini, iPad Air) */
+@media screen and (min-width: 768px) and (max-width: 1023px) {
+  .hero-right {
+    width: 100% !important;
+    height: 380px !important;
+    clip-path: none !important;
+  }
+  .hero-right img {
+    object-position: center !important;
+  }
+}
+
