@@ -1,12 +1,12 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 
-const sections = ["HOME", "ABOUT", "SERVICES", "PRODUCT", "WHY US", "CONTACT"];
+// SAME ORDER — but using valid HTML ID names
+const sections = ["HOME", "ABOUT", "SERVICES", "PRODUCT", "WHY_US", "CONTACT"];
 
 export default function SideDotsNav() {
   const [activeSection, setActiveSection] = useState("HOME");
 
-  // Track visible section using IntersectionObserver
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -26,7 +26,6 @@ export default function SideDotsNav() {
     return () => observer.disconnect();
   }, []);
 
-  // Handle dot click — smooth scroll to section
   const handleClick = (id) => {
     const section = document.getElementById(id);
     if (section) {

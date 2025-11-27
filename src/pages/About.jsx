@@ -90,7 +90,7 @@ export default function AboutSection() {
               About Us
             </motion.h1>
 
-            <p className="text-sm sm:text-base md:text-[17px] leading-relaxed font-light font-roboto text-gray-100">
+            <p className="text-sm sm:text-base md:text-lg leading-relaxed font-thin font-roboto text-gray-100">
               <span className="font-semibold text-white">ABDULWAHAB TRADING LLC</span>{" "}
               has established a strong reputation as one of the leading suppliers of specialized
               industrial goods and services in the Middle East. We proudly deliver high-quality

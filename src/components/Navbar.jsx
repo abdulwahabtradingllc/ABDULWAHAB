@@ -1,24 +1,25 @@
 'use client';
 
 import React, { useState, useEffect, useRef } from "react";
-import { useLocation, useNavigate } from "react-router-dom"; // ✅ React Router
+import { useLocation, useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
 import { Menu, X } from "lucide-react";
-import textlogo from '../assets/images/textlogo.png'
+import textlogo from "../assets/images/Companylogo.png";
 
 export default function Navbar() {
-  const menuItems = ["HOME", "ABOUT", "SERVICES", "PRODUCT", "WHY US", "CONTACT"];
+  const menuItems = ["HOME", "ABOUT", "WHYUS", "SERVICES", "PRODUCT", "CONTACT"];
+
   const [active, setActive] = useState("HOME");
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [hoverNav, setHoverNav] = useState(false);
+
   const sectionRefs = useRef({});
   const location = useLocation();
   const navigate = useNavigate();
 
   const isProductPage = location.pathname.toLowerCase().includes("product");
 
-  // ✅ Initialize scroll + active state
   useEffect(() => {
     if (isProductPage) {
       setScrolled(true);
@@ -28,26 +29,25 @@ export default function Navbar() {
     }
   }, [isProductPage, location.pathname]);
 
-  // ✅ Scroll listener (skip on product page)
   useEffect(() => {
     if (isProductPage) return;
+
     const handleScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener("scroll", handleScroll);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+
     return () => window.removeEventListener("scroll", handleScroll);
   }, [isProductPage]);
 
-  // ✅ IntersectionObserver (only on homepage)
   useEffect(() => {
     if (isProductPage) return;
 
+    // IntersectionObserver to update active section
     const observer = new IntersectionObserver(
       (entries) => {
         const visible = entries.find((entry) => entry.isIntersecting);
         if (visible) {
-          const sectionId = visible.target.id;
-          if (sectionId && sectionId !== active) {
-            setActive(sectionId);
-          }
+          const id = visible.target.id;
+          if (id && id !== active) setActive(id);
         }
       },
       { threshold: 0.5 }
@@ -62,26 +62,18 @@ export default function Navbar() {
     });
 
     return () => observer.disconnect();
-  }, [active, isProductPage]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isProductPage]); // don't include `active` to avoid excessive re-creating
 
-  // ✅ Handle click (navigate or scroll)
   const handleClick = (item) => {
     setActive(item);
     setIsOpen(false);
 
-    // if product page clicked → go to /products
-    /* if (item === "PRODUCT") {
-      navigate("/products");
-      return;
-    } */
-
-    // if we're NOT on home page, go home first
     if (isProductPage && item !== "PRODUCT") {
       navigate("/", { state: { scrollTo: item } });
       return;
     }
 
-    // if already on home → smooth scroll
     const section = document.getElementById(item);
     if (section) {
       section.scrollIntoView({ behavior: "smooth" });
@@ -90,135 +82,122 @@ export default function Navbar() {
     }
   };
 
-  // ✅ Handle scroll after navigating back home
   useEffect(() => {
     if (location.pathname === "/" && location.state?.scrollTo) {
       const section = document.getElementById(location.state.scrollTo);
       if (section) {
         setTimeout(() => {
           section.scrollIntoView({ behavior: "smooth" });
-        }, 300); // small delay to allow render
+        }, 300);
       }
     }
   }, [location]);
 
   const navbarBg = scrolled || hoverNav ? "bg-white shadow-md" : "bg-transparent";
-  const showLogo = scrolled || hoverNav;
 
   return (
     <nav
-      className={`fixed top-0 left-0 w-full z-50 transition-colors duration-300 ${navbarBg}`}
+      className={`fixed top-0 left-0 w-full z-[9999] transition-all duration-300 ${navbarBg}`}
       onMouseEnter={() => setHoverNav(true)}
       onMouseLeave={() => setHoverNav(false)}
     >
-      <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center h-16">
-        {/* Logo */}
-<motion.div
-  className="w-auto cursor-pointer"
-  onClick={() => navigate("/")}
-  initial={{ opacity: 0 }}
-  animate={{ opacity: 1 }}
-  transition={{ duration: 0.3 }}
->
-  <div
-    className="flex flex-col justify-center items-center h-16 leading-tight text-center transition-all duration-300 drop-shadow-none"
-  >
-    {/* Arabic text */}
-    <p
-      className={`text-[17px] font-semibold font-sans tracking-wide whitespace-nowrap transition-colors duration-300 ${
-        scrolled || hoverNav ? "text-[#1A83C7]" : "text-white"
-      }`}
-    >
-      عبدالوهاب للتجارة ش.ذ.م.م
-    </p>
-
-    {/* English text */}
-    <p
-      className={`text-[14px] font-bold tracking-wide uppercase whitespace-nowrap transition-colors duration-300 ${
-        scrolled || hoverNav ? "text-[#1A83C7]" : "text-white"
-      }`}
-    >
-      ABDULWAHAB TRADING LLC
-    </p>
-  </div>
-</motion.div>
-
-
-
-        {/* Desktop Menu */}
-        <ul
-          className={`hidden md:flex space-x-6 font-medium font-heading relative transition-colors duration-300 text-sm ${scrolled || hoverNav ? "text-gray-800" : "text-white"
+      <div className="max-w-7xl mx-auto px-5 md:px-12 flex justify-between items-center h-16">
+        {/* LOGO */}
+        <motion.div
+          className="cursor-pointer"
+          onClick={() => navigate("/")}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+        >
+          <img
+            src={textlogo}
+            alt="logo"
+            className={`h-12 md:h-14 transition-all duration-300 ${
+              scrolled || hoverNav ? "opacity-100" : "brightness-0 invert"
             }`}
+          />
+        </motion.div>
+
+        {/* DESKTOP MENU */}
+        <ul
+          className={`hidden md:flex items-center space-x-6 text-sm font-medium transition-colors duration-300 ${
+            scrolled || hoverNav ? "text-gray-800" : "text-white"
+          }`}
         >
           {menuItems.map((item) => {
-            const isActive =
-              active === item || (item === "PRODUCT" && isProductPage);
-            return (
-              <li key={item} className="relative group">
-                <div
-                  onClick={() => handleClick(item)}
-                  className="relative cursor-pointer z-20 h-14 flex flex-col items-center justify-center px-3"
-                >
-                  <span
-                    className={`transition-all duration-300 ${item === "HOME"
-                        ? "font-medium"
-                        : isActive
-                          ? "font-bold text-[#1A83C7]"
-                          : "font-medium"
-                      }`}
-                  >
-                    {item}
-                  </span>
+            const isActive = active === item || (item === "PRODUCT" && isProductPage);
 
-                  {/* Underline */}
-                  {isActive && (
-                    <motion.div
-                      className="h-1 w-full rounded mt-1 bg-[#1A83C7]"
-                      layout
-                      transition={{ duration: 0.3 }}
-                    />
-                  )}
-                  {!isActive && (
-                    <div className="h-1 w-0 bg-black rounded mt-1 group-hover:w-full transition-all duration-300" />
-                  )}
-                </div>
+            return (
+              <li key={item} className="relative group pb-2">
+                <button
+                  type="button"
+                  onClick={() => handleClick(item)}
+                  className={`cursor-pointer bg-transparent border-0 p-0 ${
+                    isActive ? "font-bold" : "font-medium"
+                  }`}
+                >
+                  {item}
+                </button>
+
+                {/* UNDERLINE USING CSS scaleX (no layoutId) */}
+                {isActive ? (
+                  <div
+                    className="absolute left-0 bottom-0 h-1 w-full bg-[#0183c4] rounded origin-left transform scale-x-100 transition-transform duration-200"
+                    style={{ transformOrigin: "left" }}
+                    aria-hidden
+                  />
+                ) : (
+                  <div
+                    className="absolute left-0 bottom-0 h-1 w-full bg-gray-400 rounded origin-left transform scale-x-0 group-hover:scale-x-100 transition-transform duration-200"
+                    style={{ transformOrigin: "left" }}
+                    aria-hidden
+                  />
+                )}
               </li>
             );
           })}
         </ul>
 
-        {/* Mobile Toggle */}
+        {/* MOBILE MENU BUTTON */}
         <button
-          className={`md:hidden transition-colors duration-300 ${scrolled || hoverNav ? "text-gray-800" : "text-white"
-            }`}
+          className={`md:hidden transition-all duration-300 ${
+            scrolled || hoverNav ? "text-gray-800" : "text-white"
+          }`}
           onClick={() => setIsOpen(!isOpen)}
+          aria-label="Toggle menu"
         >
-          {isOpen ? <X size={26} /> : <Menu size={26} />}
+          {isOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
       </div>
 
-      {/* Mobile Drawer */}
-      {isOpen && (
-        <div className="md:hidden bg-white shadow-lg">
-          <ul className="flex flex-col space-y-4 py-5 px-6 text-center text-sm">
-            {menuItems.map((item) => {
-              const isActive =
-                active === item || (item === "PRODUCT" && isProductPage);
-              return (
-                <li key={item}>
-                  <span
-                    onClick={() => handleClick(item)}
-                    className={`cursor-pointer py-1 ${isActive ? "text-blue-600 font-bold" : "text-gray-700"
-                      }`}
-                  >
-                    {item}
-                  </span>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-      )}
+      {/* MOBILE DROPDOWN */}
+      <motion.div
+        initial={{ opacity: 0, scaleY: 0 }}
+        animate={isOpen ? { opacity: 1, scaleY: 1 } : { opacity: 0, scaleY: 0 }}
+        transition={{ duration: 0.2 }}
+        style={{ transformOrigin: "top" }}
+        className="md:hidden bg-white shadow-lg"
+      >
+        <ul className="flex flex-col py-4 px-4 space-y-4 text-center">
+          {menuItems.map((item) => {
+            const isActive = active === item;
+
+            return (
+              <li key={item}>
+                <button
+                  type="button"
+                  className={`cursor-pointer text-lg ${
+                    isActive ? "text-blue-600 font-bold" : "text-gray-800"
+                  }`}
+                  onClick={() => handleClick(item)}
+                >
+                  {item}
+                </button>
+              </li>
+            );
+          })}
+        </ul>
+      </motion.div>
     </nav>
   );
 }

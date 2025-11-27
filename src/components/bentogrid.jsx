@@ -2,10 +2,10 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import thermowell from '../assets/images/thermowell.jpg'
+import thermowell from '../assets/images/thermo.png'
 import guages from '../assets/images/Guages.jpg'
 import indicators from '../assets/images/indicators.jpg'
-import cables from '../assets/images/cables.jpg'
+import cables from '../assets/images/cables.jpeg'
 import steelShot from '../assets/images/steelShot.jpg'
 import solenoidValve from '../assets/images/solenoidValve.jpg'
 import Collectors from '../assets/images/Collectors-Hepas.jpg'
@@ -62,7 +62,7 @@ function BentoItem({ src, title, className }) {
       whileHover={{ scale: 1.03 }}
       transition={{ duration: 0.3 }}
       onClick={() => navigate("/products")}
-      className={`relative overflow-hidden  ${className}`}
+      className={`relative overflow-visible   ${className}`}
     >
       <img
         src={src}

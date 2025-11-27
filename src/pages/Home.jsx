@@ -19,32 +19,34 @@ function Home() {
       <SideDotsNav/>
       
       <section id="HOME">
-        <Hero />
-      </section>
+  <Hero />
+</section>
 
-      <section id="ABOUT">
-        <About />
-      </section>
+<section id="ABOUT">
+  <About />
+</section>
 
-      <section id="SERVICES">
-        <Services />
-      </section>
+<section id="WHYUS">        {/* FIXED */}
+  <WhyChooseUs />
+</section>
 
-      <section id="PRODUCT">
-        <ProductSection />
-      </section>
+<section id="SERVICES">
+  <Services />
+</section>
 
-      <section id="WHY US">
-        <WhyChooseUs />
-      </section>
-      <section id="OFFICE SUPPLIES">
-         <OfficeSupplies />
-        <PrincipalSuppliers/>
-      </section>
-      <section id="CONTACT">
-       
-        <Contact />
-      </section>
+<section id="PRODUCT">
+  <ProductSection />
+</section>
+
+<section id="OFFICESUPPLIES">   {/* FIXED */}
+  <OfficeSupplies />
+  <PrincipalSuppliers />
+</section>
+
+<section id="CONTACT">
+  <Contact />
+</section>
+
 
       <Footer />
     </>

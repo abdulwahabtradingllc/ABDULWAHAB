@@ -2,7 +2,7 @@
   "name": "tradingllc",
   "version": "0.0.1",
   "private": true,
-  "homepage": "https://sonu-james.github.io/WhiteMatrix_AbdhulWahabTradingLLC/",
+  "homepage": "",
   "type": "module",
   "scripts": {
     "dev": "vite --open",
@@ -22,7 +22,7 @@
     "react-countup": "^6.5.3",
     "react-dom": "^18.2.0",
     "react-icons": "^5.5.0",
-    "react-router-dom": "^7.9.3",
+    "react-router-dom": "^7.9.6",
     "swiper": "^12.0.2"
   },
   "devDependencies": {
@@ -31,6 +31,6 @@
     "gh-pages": "^6.3.0",
     "postcss": "^8.4.24",
     "tailwindcss": "^3.4.7",
-    "vite": "^5.0.0"
+    "vite": "^7.2.2"
   }
 }

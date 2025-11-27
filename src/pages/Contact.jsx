@@ -19,19 +19,19 @@ export default function ContactModernFlipped() {
   return (
     <div
       id="contact"
-      className="relative min-h-[90vh] w-full flex flex-col md:flex-row overflow-hidden bg-[#1A83C7]"
+      className="relative min-h-[90vh] w-full flex flex-col md:flex-row overflow-hidden bg-[#0183c4]"
     >
       {/* LEFT SIDE - FORM */}
       <motion.div
         initial={{ opacity: 0, x: -80 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8 }}
-        className="relative w-full md:w-[45%] flex items-center justify-center py-14 px-6 bg-[#1A83C7]"
+        className="relative w-full md:w-[45%] flex items-center justify-center py-14 px-6 bg-[#0183c4]"
         style={{
           clipPath: "polygon(0 0, 96% 0, 89% 100%, 0% 100%)",
         }}
       >
-        <div className="w-full max-w-md p-8 sm:p-10 border shadow-white/20 border-white/40 bg-[#1A83C7] shadow-lg">
+        <div className="w-full max-w-md p-8 sm:p-10 border shadow-white/20 border-white/40 bg-[#0183c4] shadow-lg">
           <h2 className="text-4xl font-thin font-roboto text-center text-white mb-8">
             Get in Touch
           </h2>

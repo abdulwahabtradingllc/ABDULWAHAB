@@ -96,7 +96,7 @@ export default function Footer() {
             ABDULWAHAB TRADING LLC
           </h3>
           <p className="text-[11px] text-gray-400 leading-snug">
-            Supplying industrial solutions with precision and reliability across the Gulf region.
+            Providing specialized products and services with uncompromised quality and trust.
           </p>
         </div>
 
@@ -117,29 +117,61 @@ export default function Footer() {
         </div>
 
         {/* Get In Touch */}
-        <div>
-          <h3 className="uppercase font-thin mb-1 text-[12px] tracking-widest text-white font-roboto">
-            Get In Touch
-          </h3>
-          <div className="space-y-1 text-[12px] text-gray-300 leading-tight">
-            <div className="flex items-center space-x-2 hover:text-[#5bd1ff] transition-colors duration-200">
-              <PhoneCall size={14} className="text-[#1A83C7]" />
-              <a href="tel:+971558016768" className="hover:underline">
-                +971 55 801 6768
-              </a>
-            </div>
-            <div className="flex items-center space-x-2 hover:text-[#5bd1ff] transition-colors duration-200">
-              <MailCheck size={14} className="text-[#1A83C7]" />
-              <a href="mailto:raju@wahabintl.com" className="hover:underline">
-                raju@wahabintl.com
-              </a>
-            </div>
-            <div className="flex items-center space-x-2 hover:text-[#5bd1ff] transition-colors duration-200">
-              <MapPin size={14} className="text-[#1A83C7]" />
-              <span>Dubai, U.A.E</span>
-            </div>
-          </div>
-        </div>
+       {/* Get In Touch */}
+<div>
+  <h3 className="uppercase font-thin mb-1 text-[12px] tracking-widest text-white font-roboto">
+    Get In Touch
+  </h3>
+
+  <div className="space-y-2 text-[12px] text-gray-300 leading-tight">
+
+    {/* UAE Phone */}
+    <div className="flex items-center space-x-2 hover:text-[#5bd1ff] transition-colors duration-200">
+      <PhoneCall size={14} className="text-[#0183c4]" />
+      <a href="tel:+971558016768" className="hover:underline">
+        +971 55 801 67 68 (UAE)
+      </a>
+    </div>
+
+    {/* KSA Phone */}
+    <div className="flex items-center space-x-2 hover:text-[#5bd1ff] transition-colors duration-200">
+      <PhoneCall size={14} className="text-[#0183c4]" />
+      <a href="tel:+966598837850" className="hover:underline">
+        +966 59 883 78 50 (KSA)
+      </a>
+    </div>
+
+    {/* Email */}
+    <div className="flex items-center space-x-2 hover:text-[#5bd1ff] transition-colors duration-200">
+      <MailCheck size={14} className="text-[#0183c4]" />
+      <a href="mailto:raju@wahabintl.com" className="hover:underline">
+        raju@wahabintl.com
+      </a>
+    </div>
+
+    {/* Dubai Address */}
+    <div className="flex items-start space-x-2 leading-[1.4] hover:text-[#5bd1ff] transition-colors duration-200">
+      <MapPin size={14} className="text-[#0183c4] mt-0.5" />
+      <span>
+        Abdulwahab Trading LLC<br />
+        Silver Home, Hor Al Anz East<br />
+        Abu Hail, Dubai
+      </span>
+    </div>
+
+    {/* KSA Address */}
+    <div className="flex items-start space-x-2 hover:text-[#5bd1ff] transition-colors duration-200">
+      <MapPin size={14} className="text-[#0183c4] mt-0.5" />
+      <span>
+        EHAB8674, Bldg: 8674<br />
+        King Khalid Ibn Abdulaziz<br />
+        Dammam, KSA
+      </span>
+    </div>
+
+  </div>
+</div>
+
       </div>
 
       {/* Social + Copyright */}
@@ -154,7 +186,7 @@ export default function Footer() {
                 aria-label={label}
                 className="flex items-center text-[12px] text-gray-300 hover:text-[#5bd1ff] transition-colors duration-200"
               >
-                <Icon size={16} className="text-[#1A83C7] mr-1" />
+                <Icon size={16} className="text-[#0183c4] mr-1" />
                 {label}
               </a>
             ))}
@@ -163,7 +195,7 @@ export default function Footer() {
           {/* Copyright */}
           <p className="text-[10px] md:text-[11px] font-light text-gray-400 tracking-wide">
             © {new Date().getFullYear()}{' '}
-            <span className="font-semibold text-[#1A83C7]">Abdulwahab Trading LLC</span> — All rights reserved.
+            <span className="font-semibold text-[#0183c4]">Abdulwahab Trading LLC</span> — All rights reserved.
           </p>
         </div>
       </div>

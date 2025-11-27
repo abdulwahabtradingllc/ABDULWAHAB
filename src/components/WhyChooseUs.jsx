@@ -59,7 +59,7 @@ export default function WhyChooseUs() {
           background: 'linear-gradient(to bottom, #1A83C7, #012b2b)'
         }}
       >
-        <div className="bg-[#1A83C7] bg-opacity-60 min-h-[80vh] flex items-center">
+        <div className="bg-[#0183c4] bg-opacity-60 min-h-[80vh] flex items-center">
           <section
             ref={headingRef}
             className="relative z-10 max-w-6xl mx-auto px-6 py-24 w-full"
