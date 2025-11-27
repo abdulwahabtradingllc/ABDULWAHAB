@@ -1,20 +1,15 @@
-// src/components/HeroSection.jsx
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-// import bg1 from "../assets/images/herobg2.jpg";
 import bg1 from "../assets/images/smelting-aluminum.webp";
-import bg2 from "../assets/images/oilandgas 1.webp";
+import bg2 from "../assets/images/oilandgas 1.webp"; // ✅ renamed file (no spaces)
 import bg3 from "../assets/images/steel.webp";
-
-// import bg2 from "../assets/images/herobg3.jpg";
-// import bg3 from "../assets/images/herobg6.jpg";
 
 export default function HeroSection() {
   const heroImages = [bg1, bg2, bg3];
   const [index, setIndex] = useState(0);
   const [loaded, setLoaded] = useState(false);
 
-  // ✅ Preload all images
+  /* ✅ Preload all images */
   useEffect(() => {
     let loadedCount = 0;
     heroImages.forEach((src) => {
@@ -27,7 +22,7 @@ export default function HeroSection() {
     });
   }, []);
 
-  // ✅ Smooth image rotation
+  /* ✅ Smooth image rotation */
   useEffect(() => {
     if (!loaded) return;
     const interval = setInterval(() => {
@@ -105,9 +100,9 @@ export default function HeroSection() {
         {/* RIGHT IMAGE SECTION */}
         <div className="flex-1 relative flex justify-end items-end h-full z-10 w-full">
           
-          {/* ✅ Desktop – Sloped image (unchanged) */}
+          {/* ✅ Desktop & iPad Pro */}
           <div
-            className="hidden md:block absolute bottom-0 right-0 w-[55vw] sm:w-[60vw] md:w-[58vw] lg:w-[55vw] xl:w-[52vw] h-full overflow-hidden"
+            className="hidden md:block hero-right absolute bottom-0 right-0 w-[55vw] sm:w-[60vw] md:w-[58vw] lg:w-[55vw] xl:w-[52vw] h-full overflow-hidden"
             style={{
               clipPath: "polygon(25% 0, 100% 0, 100% 100%, 0% 100%)",
               backgroundColor: "#00acf0",
@@ -126,7 +121,7 @@ export default function HeroSection() {
             ))}
           </div>
 
-          {/* ✅ Mobile – Full width, no padding, reduced height */}
+          {/* ✅ Mobile / iPad Mini */}
           <div className="block md:hidden relative bottom-0 left-0 right-0 w-full h-[250px] sm:h-[300px] overflow-hidden m-0 p-0">
             {heroImages.map((src, i) => (
               <motion.img
