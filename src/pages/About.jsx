@@ -24,7 +24,7 @@ export default function AboutSection() {
 
   return (
     <section
-      className="relative w-full min-h-[70vh] overflow-hidden font-inter flex flex-col justify-between bg-[#0183c4]"
+      className="relative w-full min-h-[70vh] overflow-hidden font-inter flex flex-col justify-between bg-primaryBlue "
       style={{ fontFamily: "'Poppins', sans-serif" }}
     >
       {/* 🔹 Glow Accent */}
@@ -33,7 +33,7 @@ export default function AboutSection() {
       {/* MAIN WRAPPER */}
       <div className="relative z-20 w-full flex flex-col md:flex-row h-auto">
         {/* 🔹 Top soft gradient */}
-        <div className="absolute top-0 left-0 right-0 h-14 bg-gradient-to-b from-[#0183c4] to-transparent z-30 pointer-events-none" />
+        <div className="absolute top-0 left-0 right-0 h-14 bg-gradient-to-b from-primaryBlue  to-transparent z-30 pointer-events-none" />
 
         {/* LEFT IMAGE SECTION — slope for desktop only */}
         <div
@@ -68,12 +68,12 @@ export default function AboutSection() {
           </div>
 
           {/* 🔹 Top & Bottom blue overlays */}
-          <div className="absolute top-0 left-0 right-0 h-20 bg-gradient-to-b from-[#0183c4]/70 to-transparent z-20 pointer-events-none" />
-          <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-[#0183c4]/70 to-transparent z-20 pointer-events-none" />
+          <div className="absolute top-0 left-0 right-0 h-20 bg-gradient-to-b from-primaryBlue /70 to-transparent z-20 pointer-events-none" />
+          <div className="absolute bottom-0 left-0 right-0 h-20 bg-gradient-to-t from-primaryBlue /70 to-transparent z-20 pointer-events-none" />
         </div>
 
         {/* RIGHT TEXT SECTION */}
-        <div className="flex-1 flex items-center justify-center py-20 px-6 sm:px-10 md:px-20 lg:px-28 text-white z-30 bg-[#0183c4] md:bg-transparent">
+        <div className="flex-1 flex items-center justify-center py-20 px-6 sm:px-10 md:px-20 lg:px-28 text-white z-30 bg-primaryBlue  md:bg-transparent">
           <motion.div
             variants={fadeUp}
             initial="hidden"
@@ -107,7 +107,7 @@ export default function AboutSection() {
         </div>
 
         {/* 🔹 Bottom gradient fade */}
-        <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-[#0183c4] to-transparent z-30 pointer-events-none" />
+        <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-primaryBlue  to-transparent z-30 pointer-events-none" />
       </div>
 
       {/* 🔹 Mission & Vision Section */}
@@ -118,7 +118,7 @@ export default function AboutSection() {
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-roboto font-light tracking-tight text-center mb-3 text-gray-900">
               Our Mission
             </h2>
-            <ul className="list-disc pl-5 space-y-2 text-xs sm:text-sm font-light font-roboto text-gray-700 leading-relaxed text-left">
+            <ul className="list-disc pl-5 space-y-2 text-sm sm:text-base  font-light font-roboto text-gray-700 leading-relaxed text-left">
               <li>Engage in trade with a focus on quality services to customers and professional competences.</li>
               <li>Develop new markets and products, and expand business in Industrial Raw Materials, Commodities, and Engineering Equipment and Projects.</li>
               <li>Serve as an effective instrument of public policy and social responsibility.</li>
@@ -130,7 +130,7 @@ export default function AboutSection() {
             <h2 className="text-2xl sm:text-3xl md:text-4xl font-roboto font-light tracking-tight text-center mb-3 text-gray-900">
               Our Vision
             </h2>
-            <ul className="list-disc pl-5 space-y-2 text-xs sm:text-sm font-light font-roboto text-gray-700 leading-relaxed text-left">
+            <ul className="list-disc pl-5 space-y-2 text-sm sm:text-base font-light font-roboto text-gray-700 leading-relaxed text-left">
               <li>To be the trading company of choice of the customers, principals, and investors through dedicated professionalism.</li>
             </ul>
           </div>

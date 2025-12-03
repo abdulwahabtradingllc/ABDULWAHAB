@@ -1,8 +1,8 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 
-// SAME ORDER — but using valid HTML ID names
-const sections = ["HOME", "ABOUT", "SERVICES", "PRODUCT", "WHY_US", "CONTACT"];
+// Correct & REAL homepage section order and IDs
+const sections = ["HOME", "ABOUT", "WHYUS", "SERVICES", "PRODUCT", "CONTACT"];
 
 export default function SideDotsNav() {
   const [activeSection, setActiveSection] = useState("HOME");
@@ -41,8 +41,8 @@ export default function SideDotsNav() {
           onClick={() => handleClick(id)}
           className={`w-4 h-4 rounded-full border-2 transition-all duration-300 ${
             activeSection === id
-              ? 'bg-white border-white scale-110'
-              : 'border-white/60 hover:scale-110'
+              ? "bg-white border-white scale-110"
+              : "border-white/60 hover:scale-110"
           }`}
         />
       ))}

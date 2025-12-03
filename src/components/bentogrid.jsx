@@ -2,12 +2,12 @@
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useNavigate } from "react-router-dom";
-import thermowell from '../assets/images/thermo.png'
+import thermowell from '../assets/images/thermo.jpg'
 import guages from '../assets/images/Guages.jpg'
 import indicators from '../assets/images/indicators.jpg'
 import cables from '../assets/images/cables.jpeg'
 import steelShot from '../assets/images/steelShot.jpg'
-import solenoidValve from '../assets/images/solenoidValve.jpg'
+import solenoidValve from '../assets/images/solvalves.jpg' 
 import Collectors from '../assets/images/Collectors-Hepas.jpg'
 
 const images = [

@@ -3,7 +3,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Mail, Phone, MapPin } from "lucide-react";
 import { TextField, Button } from "@mui/material";
-import contactImg from "../assets/images/contactnew.jpg";
+import contactImg from "../assets/images/contact.jpg";
 
 export default function ContactModernFlipped() {
   const handleSubmit = (e) => {
@@ -19,19 +19,19 @@ export default function ContactModernFlipped() {
   return (
     <div
       id="contact"
-      className="relative min-h-[90vh] w-full flex flex-col md:flex-row overflow-hidden bg-[#0183c4]"
+      className="relative min-h-[90vh] w-full flex flex-col md:flex-row overflow-hidden bg-primaryBlue "
     >
       {/* LEFT SIDE - FORM */}
       <motion.div
         initial={{ opacity: 0, x: -80 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.8 }}
-        className="relative w-full md:w-[45%] flex items-center justify-center py-14 px-6 bg-[#0183c4]"
+        className="relative w-full md:w-[45%] flex items-center justify-center py-14 px-6 bg-primaryBlue "
         style={{
           clipPath: "polygon(0 0, 96% 0, 89% 100%, 0% 100%)",
         }}
       >
-        <div className="w-full max-w-md p-8 sm:p-10 border shadow-white/20 border-white/40 bg-[#0183c4] shadow-lg">
+        <div className="w-full max-w-md p-8 sm:p-10 border shadow-white/20 border-white/40 bg-primaryBlue  shadow-lg">
           <h2 className="text-4xl font-thin font-roboto text-center text-white mb-8">
             Get in Touch
           </h2>
@@ -172,31 +172,31 @@ export default function ContactModernFlipped() {
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-light font-roboto">
             Let’s Connect
           </h2>
-          <p className="text-white text-sm sm:text-base leading-relaxed">
+          <p className="text-white text-sm sm:text-base font-roboto leading-relaxed">
             Reach out to us for inquiries, collaborations, or project discussions.
             We’d love to hear from you.
           </p>
 
           <div className="space-y-4 text-white text-sm sm:text-base">
-            <div className="flex items-center justify-center md:justify-start gap-3">
+            <div className="flex items-center justify-center font-roboto md:justify-start gap-3">
               <Phone className="text-white" size={20} />
               <span>+971 55 801 67 68 (UAE) / +966 59 883 78 50 (KSA)</span>
             </div>
 
-            <div className="flex items-center justify-center md:justify-start gap-3">
+            <div className="flex items-center font-roboto justify-center md:justify-start gap-3">
               <Mail className="text-white" size={20} />
               <a
                 href="mailto:raju@wahabintl.com"
-                className="text-white hover:underline break-all"
+                className="text-white hover:underline font-roboto break-all"
               >
                 raju@wahabintl.com
               </a>
             </div>
 
             <div className="flex flex-col gap-4">
-              <div className="flex items-start gap-2 justify-center md:justify-start">
+              <div className="flex items-start gap-2 justify-center  md:justify-start">
                 <MapPin className="text-white mt-1" size={20} />
-                <div className="text-sm sm:text-base">
+                <div className="text-sm  font-roboto sm:text-base">
                   Abdulwahab Trading LLC <br />
                   Silver Home, Hor Al Anz East <br />
                   Abu Hail, Dubai
@@ -205,7 +205,7 @@ export default function ContactModernFlipped() {
 
               <div className="flex items-start gap-2 justify-center md:justify-start">
                 <MapPin className="text-white mt-1" size={20} />
-                <div className="text-sm sm:text-base">
+                <div className="text-sm font-roboto sm:text-base">
                   EHAB8674, Bldg: 8674 <br />
                   King Khalid Ibn Abdulaziz <br />
                   Dammam, KSA

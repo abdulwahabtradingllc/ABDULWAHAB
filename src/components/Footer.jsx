@@ -123,54 +123,50 @@ export default function Footer() {
     Get In Touch
   </h3>
 
-  <div className="space-y-2 text-[12px] text-gray-300 leading-tight">
+  {/* Semantic Address Block for SEO */}
+  <address className="not-italic space-y-2 text-[12px] text-gray-300 leading-tight">
 
     {/* UAE Phone */}
-    <div className="flex items-center space-x-2 hover:text-[#5bd1ff] transition-colors duration-200">
-      <PhoneCall size={14} className="text-[#0183c4]" />
-      <a href="tel:+971558016768" className="hover:underline">
-        +971 55 801 67 68 (UAE)
-      </a>
-    </div>
+    <p className="flex items-center space-x-2 hover:text-[#5bd1ff] transition-colors duration-200">
+      <PhoneCall size={14} className="text-primaryBlue" />
+      <a href="tel:+971558016768">+971 55 801 67 68 (UAE)</a>
+    </p>
 
     {/* KSA Phone */}
-    <div className="flex items-center space-x-2 hover:text-[#5bd1ff] transition-colors duration-200">
-      <PhoneCall size={14} className="text-[#0183c4]" />
-      <a href="tel:+966598837850" className="hover:underline">
-        +966 59 883 78 50 (KSA)
-      </a>
-    </div>
+    <p className="flex items-center space-x-2 hover:text-[#5bd1ff] transition-colors duration-200">
+      <PhoneCall size={14} className="text-primaryBlue" />
+      <a href="tel:+966598837850">+966 59 883 78 50 (KSA)</a>
+    </p>
 
     {/* Email */}
-    <div className="flex items-center space-x-2 hover:text-[#5bd1ff] transition-colors duration-200">
-      <MailCheck size={14} className="text-[#0183c4]" />
-      <a href="mailto:raju@wahabintl.com" className="hover:underline">
-        raju@wahabintl.com
-      </a>
-    </div>
+    <p className="flex items-center space-x-2 hover:text-[#5bd1ff] transition-colors duration-200">
+      <MailCheck size={14} className="text-primaryBlue" />
+      <a href="mailto:raju@wahabintl.com">raju@wahabintl.com</a>
+    </p>
 
-    {/* Dubai Address */}
-    <div className="flex items-start space-x-2 leading-[1.4] hover:text-[#5bd1ff] transition-colors duration-200">
-      <MapPin size={14} className="text-[#0183c4] mt-0.5" />
+    {/* UAE Address */}
+    <p className="flex items-start space-x-2 hover:text-[#5bd1ff] transition-colors duration-200">
+      <MapPin size={14} className="text-primaryBlue mt-0.5" />
       <span>
         Abdulwahab Trading LLC<br />
-        Silver Home, Hor Al Anz East<br />
-        Abu Hail, Dubai
+        Silver Home, Hor Al Anz East,<br />
+        Abu Hail, Dubai, UAE
       </span>
-    </div>
+    </p>
 
     {/* KSA Address */}
-    <div className="flex items-start space-x-2 hover:text-[#5bd1ff] transition-colors duration-200">
-      <MapPin size={14} className="text-[#0183c4] mt-0.5" />
+    <p className="flex items-start space-x-2 hover:text-[#5bd1ff] transition-colors duration-200">
+      <MapPin size={14} className="text-primaryBlue mt-0.5" />
       <span>
-        EHAB8674, Bldg: 8674<br />
-        King Khalid Ibn Abdulaziz<br />
+        EHAB8674, Bldg 8674,<br />
+        King Khalid Ibn Abdulaziz Street,<br />
         Dammam, KSA
       </span>
-    </div>
+    </p>
 
-  </div>
+  </address>
 </div>
+
 
       </div>
 
@@ -186,7 +182,7 @@ export default function Footer() {
                 aria-label={label}
                 className="flex items-center text-[12px] text-gray-300 hover:text-[#5bd1ff] transition-colors duration-200"
               >
-                <Icon size={16} className="text-[#0183c4] mr-1" />
+                <Icon size={16} className="text-primaryBlue  mr-1" />
                 {label}
               </a>
             ))}
@@ -195,7 +191,7 @@ export default function Footer() {
           {/* Copyright */}
           <p className="text-[10px] md:text-[11px] font-light text-gray-400 tracking-wide">
             © {new Date().getFullYear()}{' '}
-            <span className="font-semibold text-[#0183c4]">Abdulwahab Trading LLC</span> — All rights reserved.
+            <span className="font-semibold text-primaryBlue ">Abdulwahab Trading LLC</span> — All rights reserved.
           </p>
         </div>
       </div>

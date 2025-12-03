@@ -2,20 +2,20 @@
 
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
-import { Star } from "lucide-react";
+import { Helmet } from "react-helmet-async";   // ⭐ ADD THIS
 
-import thermowell from '../assets/images/thermo.png';
+import thermowell from '../assets/images/thermo.jpg';
 import guages from '../assets/images/Guages.jpg';
 import cables from '../assets/images/cables.jpeg';
 import steelShots from '../assets/images/steelShot.jpg';
-import solenoidValves from '../assets/images/solvalves.png';
+import solenoidValves from '../assets/images/solvalves.jpg';
 import Collectors from '../assets/images/Collectors-Hepas.jpg';
 import ceramicBlanket from '../assets/images/ceramicBlanket.jpg';
 import bricks from '../assets/images/bricks.jpeg';
 import mortar from '../assets/images/mortar1.jpeg';
 import steel from '../assets/images/steelbars.jpeg';
 import processValves from '../assets/images/processValves1.jpeg';
-import cylinders from '../assets/images/cylinders.png';
+import cylinders from '../assets/images/cylinders.jpg';
 import gaskets from '../assets/images/gaskets.jpeg';
 import coating from '../assets/images/marineCoating.jpg';
 import battery from '../assets/images/batteryhelth.jpeg';
@@ -37,11 +37,10 @@ const allProducts = [
     title: "THERMOCOUPLE / THERMOWELL / RTD’S / CABLES",
     desc: "High accuracy and durable temperature sensors for industrial applications.",
     category: "Temperature",
-    image: [thermowell, cables], // MULTIPLE IMAGES
+    image: [thermowell, cables],
     price: "AED 120.00",
     rating: 4.5
   },
-
   { id: 2, title: "GAUGES / TRANSMITTERS", desc: "Reliable measurement and transmission of pressure and process data.", category: "Pressure", image: guages },
   { id: 12, title: "PNEUMATIC CYLINDERS", desc: "High-performance actuators for automation systems.", category: "Pneumatics", image: cylinders },
   { id: 11, title: "SOLENOID VALVES", desc: "Electrically operated valves for fluid/gas control.", category: "Automation", image: solenoidValves },
@@ -72,10 +71,15 @@ const allProducts = [
 export default function Commodities() {
   const [slideshowIndex, setSlideshowIndex] = useState(0);
 
-  // AUTO-SLIDES ONLY FOR PRODUCT 1
+  // ⭐ SCROLL TO TOP ON PAGE LOAD
+  useEffect(() => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  }, []);
+
+  // AUTO SLIDE FOR PRODUCT 1 ONLY
   useEffect(() => {
     const interval = setInterval(() => {
-      setSlideshowIndex((prev) => prev === 0 ? 1 : 0);
+      setSlideshowIndex((prev) => (prev === 0 ? 1 : 0));
     }, 2000);
     return () => clearInterval(interval);
   }, []);
@@ -84,47 +88,54 @@ export default function Commodities() {
     <>
       <Navbar />
 
+      {/* ⭐ Canonical Tag for /products */}
+      <Helmet>
+        <link rel="canonical" href="https://wahabintl.com/products" />
+      </Helmet>
+
       <div className="min-h-screen p-6 pt-20 bg-gray-50">
         <div className="max-w-7xl mx-auto">
- <motion.div initial={{ opacity: 0, y: -20 }} whileInView={{ opacity: 1, y: 0 }} transition={{ duration: 0.8 }} className="text-center mb-8">
-            <h2 className="text-4xl sm:text-5xl mt-7 font-poppins font-thin text-[#0183c4]">
+
+          <motion.div
+            initial={{ opacity: 0, y: -20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-8"
+          >
+            <h2 className="text-4xl sm:text-5xl md:text-6xl mt-7 font-poppins font-thin text-primaryBlue">
               Our Industrial Products
             </h2>
-            <center>
-   <p className="max-w-3xl mx-auto md:mx-0 text-sm md:text-base mt-3 font-light text-gray-700 leading-snug">
+
+            <p className="max-w-3xl mx-auto text-sm md:text-base mt-3 font-light text-gray-700 leading-snug">
               Through our strong global sourcing network, <span className="font-bold">ABDULWAHAB TRADING LLC</span> connects you to world-class manufacturers and suppliers, offering only the finest quality products.
             </p>
-            </center>
-         
           </motion.div>
 
           {/* PRODUCT GRID */}
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
 
             {allProducts.map((product) => (
-              <div key={product.id} className="bg-white rounded-xl shadow-sm hover:shadow-md transition p-3">
-
+              <div
+                key={product.id}
+                className="bg-white rounded-xl shadow-sm hover:shadow-md transition p-3"
+              >
                 {/* IMAGE AREA */}
                 <div className="w-full h-56 bg-gray-100 rounded-md overflow-hidden flex justify-center items-center">
-
-                {Array.isArray(product.image) ? (
-  <motion.img
-    key={slideshowIndex}
-    src={product.image[slideshowIndex]}
-    initial={{ opacity: 0 }}
-    animate={{ opacity: 1 }}
-    exit={{ opacity: 0 }}
-    transition={{ duration: 0.8, ease: "easeInOut" }}
-    className="w-full h-full object-cover"
-  />
-) : (
-  <img
-    src={product.image}
-    className="w-full h-full object-cover"
-  />
-)}
-
-
+                  {Array.isArray(product.image) ? (
+                    <motion.img
+                      key={slideshowIndex}
+                      src={product.image[slideshowIndex]}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      transition={{ duration: 0.8, ease: "easeInOut" }}
+                      className="w-full h-full object-cover"
+                    />
+                  ) : (
+                    <img
+                      src={product.image}
+                      className="w-full h-full object-cover"
+                    />
+                  )}
                 </div>
 
                 {/* TEXT AREA */}
@@ -134,7 +145,6 @@ export default function Commodities() {
                 <p className="text-xs text-gray-500 line-clamp-2">
                   {product.desc}
                 </p>
-
               </div>
             ))}
 

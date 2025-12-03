@@ -59,7 +59,7 @@ export default function WhyChooseUs() {
           background: 'linear-gradient(to bottom, #1A83C7, #012b2b)'
         }}
       >
-        <div className="bg-[#0183c4] bg-opacity-60 min-h-[80vh] flex items-center">
+        <div className="bg-primaryBlue  bg-opacity-60 min-h-[80vh] flex items-center">
           <section
             ref={headingRef}
             className="relative z-10 max-w-6xl mx-auto px-6 py-24 w-full"
@@ -84,7 +84,7 @@ export default function WhyChooseUs() {
                 transition={{ duration: 0.8 }}
                 className="text-center mb-20"
               >
-                <h2 className="text-5xl sm:text-6xl  font-roboto font-thin text-white font-heading">
+                <h2 className="text-5xl sm:text-6xl  font-roboto font-thin text-white ">
                   Why Choose Us
                 </h2>
                 <p className="mt-6 text-gray-300 text-sm sm:text-xl font-roboto font-thin max-w-3xl mx-auto leading-relaxed">
@@ -119,7 +119,7 @@ export default function WhyChooseUs() {
                       {item.title}
                     </h3>
                   </div>
-                  <p className="text-gray-200 text-xs sm:text-sm md:text-sm leading-snug max-w-xl ">
+                  <p className="text-gray-200  text-sm sm:text-base font-roboto font-thin leading-snug max-w-xl ">
                     {item.description}
                   </p>
 

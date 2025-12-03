@@ -1,5 +1,7 @@
 'use client';
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
+
 import Navbar from '../components/Navbar';
 import Hero from '../components/Hero';
 import About from './About';
@@ -15,38 +17,42 @@ import PrincipalSuppliers from '../components/PrincipalSuppliers';
 function Home() {
   return (
     <>
+      {/* ⭐ SEO Canonical Tag */}
+      <Helmet>
+        <link rel="canonical" href="https://wahabintl.com/" />
+      </Helmet>
+
       <Navbar />
-      <SideDotsNav/>
-      
+      <SideDotsNav />
+
       <section id="HOME">
-  <Hero />
-</section>
+        <Hero />
+      </section>
 
-<section id="ABOUT">
-  <About />
-</section>
+      <section id="ABOUT">
+        <About />
+      </section>
 
-<section id="WHYUS">        {/* FIXED */}
-  <WhyChooseUs />
-</section>
+      <section id="WHYUS">
+        <WhyChooseUs />
+      </section>
 
-<section id="SERVICES">
-  <Services />
-</section>
+      <section id="SERVICES">
+        <Services />
+      </section>
 
-<section id="PRODUCT">
-  <ProductSection />
-</section>
+      <section id="PRODUCT">
+        <ProductSection />
+      </section>
 
-<section id="OFFICESUPPLIES">   {/* FIXED */}
-  <OfficeSupplies />
-  <PrincipalSuppliers />
-</section>
+      <section id="OFFICESUPPLIES">
+        <OfficeSupplies />
+        {/* <PrincipalSuppliers /> */}
+      </section>
 
-<section id="CONTACT">
-  <Contact />
-</section>
-
+      <section id="CONTACT">
+        <Contact />
+      </section>
 
       <Footer />
     </>

@@ -14,7 +14,7 @@ export default function ProductSection() {
   };
 
   return (
-    <div className="w-full min-h-[90vh] items-center px-8 py-10 md:px-19 bg-[#0183c4] overflow-visible">
+    <div className="w-full min-h-[90vh] items-center px-8 py-10 md:px-19 bg-primaryBlue  overflow-visible">
       {/* LEFT TEXT */}
       <div className="flex w-full flex-col justify-center items-start md:items-center px-5 text-center md:text-left">
         <div className="text-center my-12 px-4">
