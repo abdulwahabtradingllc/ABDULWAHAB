@@ -2,7 +2,7 @@
   "name": "tradingllc",
   "version": "0.0.1",
   "private": true,
-  "homepage": "",
+  "homepage": "https://wahabintl.com/",
   "type": "module",
   "scripts": {
     "dev": "vite --open",
